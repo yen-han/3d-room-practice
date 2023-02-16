@@ -1,5 +1,3 @@
-import * as THREE from "three";
-
 export default class Sizes {
   constructor() {
     this.width = window.innerWidth;
