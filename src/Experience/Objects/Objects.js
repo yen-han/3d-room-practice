@@ -9,7 +9,10 @@ export default class Objects {
     this.scene = this.experience.scene;
     this.canvas = this.experience.canvas;
     this.camera = this.experience.camera;
-    this.room = new Room();
+    this.resources = this.experience.resources;
+    this.resources.on("loaded", () => {
+      this.room = new Room();
+    });
   }
 
   resize() {}

@@ -13,5 +13,8 @@ function App() {
     </div>
   );
 }
-// 2:15:46
+
 export default App;
+
+// 2:15:46
+// Why copy draco foloder   to public folder?
