@@ -19,5 +19,9 @@ export default class Objects {
 
   resize() {}
 
-  update() {}
+  update() {
+    if (this.room) {
+      this.room.update();
+    }
+  }
 }

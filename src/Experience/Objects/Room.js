@@ -5,11 +5,12 @@ export default class Room {
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;
-
+    this.time = this.experience.time;
     this.resources = this.experience.resources;
     this.room = this.resources.items.room;
     this.actualRoom = this.room.scene;
     this.setModel();
+    this.setAnimation();
   }
   setModel() {
     this.actualRoom.children.forEach((child) => {
@@ -38,8 +39,15 @@ export default class Room {
     this.scene.add(this.actualRoom);
     this.actualRoom.scale.set(0.1, 0.1, 0.1);
   }
+  setAnimation() {
+    this.mixer = new THREE.AnimationMixer(this.actualRoom);
+    this.swim = this.mixer.clipAction(this.room.animations[0]);
+    this.swim.play();
+  }
 
   resize() {}
 
-  update() {}
+  update() {
+    this.mixer.update(this.time.delta * 0.0008);
+  }
 }
