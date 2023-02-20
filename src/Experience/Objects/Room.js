@@ -9,7 +9,6 @@ export default class Room {
     this.resources = this.experience.resources;
     this.room = this.resources.items.room;
     this.actualRoom = this.room.scene;
-
     this.setModel();
   }
   setModel() {
@@ -21,6 +20,14 @@ export default class Room {
           groupChild.castShadow = true;
           groupChild.receiveShadow = true;
         });
+      }
+      if (child.name === "Aquarium") {
+        child.children[0].material = new THREE.MeshPhysicalMaterial();
+        child.children[0].material.roughness = 0;
+        child.children[0].material.color.set(0x549dd2);
+        child.children[0].material.ior = 3;
+        child.children[0].material.transmission = 1;
+        child.children[0].material.opacity = 1;
       }
     });
     this.scene.add(this.actualRoom);
