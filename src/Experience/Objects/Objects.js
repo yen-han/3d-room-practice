@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import Experience from "../Experience";
+import Environment from "./Environment";
 
 import Room from "./Room";
 export default class Objects {
@@ -11,6 +12,7 @@ export default class Objects {
     this.camera = this.experience.camera;
     this.resources = this.experience.resources;
     this.resources.on("loaded", () => {
+      this.environment = new Environment();
       this.room = new Room();
     });
   }

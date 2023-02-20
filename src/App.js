@@ -16,5 +16,5 @@ function App() {
 
 export default App;
 
-// 2:15:46
-// Why copy draco foloder   to public folder?
+// 2:52:27
+// Why copy draco folder   to public folder?
