@@ -1,8 +1,9 @@
 import * as THREE from "three";
 import Experience from "../Experience";
-import Environment from "./Environment";
 
+import Environment from "./Environment";
 import Room from "./Room";
+import Controls from "./Controls";
 export default class Objects {
   constructor() {
     this.experience = new Experience();
@@ -14,6 +15,7 @@ export default class Objects {
     this.resources.on("loaded", () => {
       this.environment = new Environment();
       this.room = new Room();
+      this.controls = new Controls();
     });
   }
 
@@ -22,6 +24,9 @@ export default class Objects {
   update() {
     if (this.room) {
       this.room.update();
+    }
+    if (this.controls) {
+      this.controls.update();
     }
   }
 }
